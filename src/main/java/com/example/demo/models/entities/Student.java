@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tbl_course")
+@Table(name = "tbl_student")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Student {
 
