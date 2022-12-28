@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,5 +70,18 @@ public class StudentController {
 
         studentService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    // Orden Listado Estudiantes A o D
+    @GetMapping("/order/{key}")
+    public ResponseEntity<List<StudentDTO>> orderStudent(@PathVariable("key") String key) throws Exception{
+        List<StudentDTO> list = studentService.findAll()
+                .stream()
+                .sorted(key.equalsIgnoreCase("A") ? Comparator.comparing(Student::getAge) :
+                        Comparator.comparing(Student::getAge).reversed())
+                .map(student -> modelMapper.map(student, StudentDTO.class))
+                .collect(Collectors.toList());
+
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 }
