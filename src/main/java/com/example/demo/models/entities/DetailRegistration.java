@@ -19,7 +19,7 @@ public class DetailRegistration {
     private Integer idRegistrationDetail;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false, foreignKey = @ForeignKey(name= "FK_Detail_Registration_Course"))
+    @JoinColumn(name = "id_course", nullable = false, foreignKey = @ForeignKey(name= "FK_Detail_Registration_Course"))
     private Course course;
 
     @ManyToOne
