@@ -30,13 +30,6 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(res, HttpStatus.NOT_FOUND);
     }
 
-//    @ExceptionHandler(NoHandlerFoundException.class)
-//    public ResponseEntity<ErrorResponse> handleNoHandleException(NoHandlerFoundException exception, WebRequest req){
-//        ErrorResponse res = new ErrorResponse(LocalDateTime.now(), exception.getMessage(), req.getDescription(false));
-//
-//        return new ResponseEntity<>(res, HttpStatus.NOT_FOUND);
-//    }
-
     @Override
     protected ResponseEntity<Object> handleNoHandlerFoundException(NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         ErrorResponse res = new ErrorResponse(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));

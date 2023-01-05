@@ -2,9 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.dtos.RegistrationDTO;
 import com.example.demo.models.dtos.ResponseGroup;
-import com.example.demo.models.dtos.StudentDTO;
 import com.example.demo.models.entities.Registration;
-import com.example.demo.models.entities.Student;
 import com.example.demo.services.RegistrationService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
